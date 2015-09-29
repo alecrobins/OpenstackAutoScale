@@ -1,7 +1,7 @@
 #!/bin/python
 #
 # sample http client
-#
+# hello
 import sys
 import httplib
 
