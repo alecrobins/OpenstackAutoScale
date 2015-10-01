@@ -1,3 +1,9 @@
+/**
+ *
+ * VM Server - main purpose to check for primes
+ *
+ */
+
 var express = require('express');
 var bodyParser = require('body-parser');
 var os  = require('os-utils');
@@ -27,7 +33,6 @@ app.get('/getLoad', function(req, res){
 // the url to redirect to
 app.get('/checkForPrimes/:number', function(req, res){
 	var n = req.params.number;
-	console.log(n);
 	var isPrime = checkForPrimes(n);
 	res.json({"isPrime": isPrime});
 });
