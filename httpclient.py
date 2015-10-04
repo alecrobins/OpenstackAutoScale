@@ -4,13 +4,31 @@
 # TEST
 import sys
 import httplib
+import requests
+import json
 
-# I make change to master from dev-alec
+r = requests.get('http://localhost:8888/get')
+l = requests.get('http://localhost:8888/getLoad')
+
+
+def getMachineNumber():
+    r.json()
+
+def getLoad():
+    l.json()
+
+def checkIfPrime():
+#TODO: get machine name with lowest load
+#send it prime number
+prime = {'prime1': '17'}
+p = requests.post("http://localhost:8888/checkForPrimes", data=prime)
+print(p.text)
+
 
 def main ():
     print "Instantiating a connection obj"
     try:
-        conn = httplib.HTTPConnection ("localhost", "8080")
+        conn = httplib.HTTPConnection ("localhost", "8888")
     except:
         print "Exception thrown: ", sys.exc_info()[0]
         raise
@@ -45,6 +63,9 @@ def main ():
     except:
         print "Exception thrown: ", sys.exc_info()[0]
         raise
+
+getMachineNumber()
+getLoad()
 
 # invoke main
 if __name__ == "__main__":
