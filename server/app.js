@@ -35,9 +35,6 @@ VMS["VM2"] =
 		"ip": "http://localhost:8080/"
 	};
 
-// to change based on load
-var currentVM = VMS.VM1.ip;
-
 // return all the virtual machines
 app.get('/getVMS', function(req, res){
 	res.json(VMS);
@@ -67,12 +64,14 @@ app.get('/getLoad/:vmID', function(req, res){
 });
 
 // ask a vm to compute the check for primes
-app.post('/checkForPrimes', function(req, res){
+app.post('/n', function(req, res){
 	var n = req.body.number;
+	var currentVM = VMS[req.body.vm];
+
 	async.series([
 		function(cb){
 			// request that the current set VM run the check for primes
-			request( currentVM + "checkForPrimes/" + n, function (error, response, body) {
+			request( currentVM.ip + "checkForPrimes/" + n, function (error, response, body) {
 			  if (!error && response.statusCode == 200) {
 			    	var data = JSON.parse(body);
 			    	cb(null, data.isPrime);
