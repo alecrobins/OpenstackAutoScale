@@ -6,7 +6,6 @@ import sys
 import httplib
 import requests
 import json
-import demjson
 
 def main ():
     print "Instantiating a connection obj"
@@ -52,22 +51,23 @@ vmInfo = json.loads(r.text)
 vm1 = vmInfo["VM1"]
 vm2 = vmInfo["VM2"]
 
-print(vm1)
-print(vm2)
-
 #Get load....
 r2 = requests.get("http://localhost:8888/getLoad")
 vmLoads = json.loads(r2.text);
 load1 = vmLoads["VM1"]["load"]
 load2 = vmLoads["VM2"]["load"]
 
+send1 = []
+send2 = []
+
+send1["name"] = vm1["name"]
+send1["load"] = load1
+
+send2["name"] = vm2["name"]
+send2["load"] = load2
+
 number = raw_input("Please enter a number: ")
 
-dataToPost1 = [ { vm1["name"]: number } ]
-send1 = demjson.encode(dataToPost1)
-
-dataToPost2 = [ { vm2["name"]: number } ]
-send2 = demjson.encode(dataToPost2)
 
 #Post
 if load1 < load2:
