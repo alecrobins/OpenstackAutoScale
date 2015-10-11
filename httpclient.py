@@ -52,36 +52,34 @@ vm1 = vmInfo["VM1"]
 vm2 = vmInfo["VM2"]
 
 i = 0;
-while  i < 1000 { 
+while  i < 1000: 
 
-#Get load....
-r2 = requests.get("http://localhost:8888/getLoad")
-vmLoads = json.loads(r2.text);
-load1 = vmLoads["VM1"]["load"]
-load2 = vmLoads["VM2"]["load"]
+    #Get load....
+    r2 = requests.get("http://localhost:8888/getLoad")
+    vmLoads = json.loads(r2.text);
+    load1 = vmLoads["VM1"]["load"]
+    load2 = vmLoads["VM2"]["load"]
 
-send1 = []
-send2 = []
+    send1 = []
+    send2 = []
 
-send1["name"] = vm1["name"]
-send1["number"] = i
+    send1["name"] = vm1["name"]
+    send1["number"] = i
 
-send2["name"] = vm2["name"]
-send2["number"] = i
+    send2["name"] = vm2["name"]
+    send2["number"] = i
 
-#Post
-if load1 < load2:
-    r3 = requests.post("http://localhost:8888/checkForPrimes", send1)
-    print("Is " + number + " a prime?")
-    print(r3.text)
-else:
-    r4 = requests.post("http://localhost:8888/checkForPrimes", send2)
-    print("Is " + number + " a prime?")
-    print(r4.text)
+    #Post
+    if load1 < load2:
+        r3 = requests.post("http://localhost:8888/checkForPrimes", send1)
+        print("Is " + number + " a prime?")
+        print(r3.text)
+    else:
+        r4 = requests.post("http://localhost:8888/checkForPrimes", send2)
+        print("Is " + number + " a prime?")
+        print(r4.text)
 
-++i
-
-}
+    ++i
 
 # invoke main
 if __name__ == "__main__":
