@@ -51,6 +51,9 @@ vmInfo = json.loads(r.text)
 vm1 = vmInfo["VM1"]
 vm2 = vmInfo["VM2"]
 
+i = 0;
+while  i < 1000 { 
+
 #Get load....
 r2 = requests.get("http://localhost:8888/getLoad")
 vmLoads = json.loads(r2.text);
@@ -61,13 +64,10 @@ send1 = []
 send2 = []
 
 send1["name"] = vm1["name"]
-send1["load"] = load1
+send1["number"] = i
 
 send2["name"] = vm2["name"]
-send2["load"] = load2
-
-number = raw_input("Please enter a number: ")
-
+send2["number"] = i
 
 #Post
 if load1 < load2:
@@ -79,6 +79,9 @@ else:
     print("Is " + number + " a prime?")
     print(r4.text)
 
+++i
+
+}
 
 # invoke main
 if __name__ == "__main__":
