@@ -6,7 +6,6 @@ import sys
 import httplib
 import requests
 import json
-import demjson
 
 def main ():
     print "Instantiating a connection obj"
@@ -52,33 +51,35 @@ vmInfo = json.loads(r.text)
 vm1 = vmInfo["VM1"]
 vm2 = vmInfo["VM2"]
 
-print(vm1)
-print(vm2)
+i = 0;
+while  i < 1000: 
 
-#Get load....
-r2 = requests.get("http://localhost:8888/getLoad")
-vmLoads = json.loads(r2.text);
-load1 = vmLoads["VM1"]["load"]
-load2 = vmLoads["VM2"]["load"]
+    #Get load....
+    r2 = requests.get("http://localhost:8888/getLoad")
+    vmLoads = json.loads(r2.text);
+    load1 = vmLoads["VM1"]["load"]
+    load2 = vmLoads["VM2"]["load"]
 
-number = raw_input("Please enter a number: ")
+    send1 = []
+    send2 = []
 
-dataToPost1 = [ { vm1["name"]: number } ]
-send1 = demjson.encode(dataToPost1)
+    send1["name"] = vm1["name"]
+    send1["number"] = i
 
-dataToPost2 = [ { vm2["name"]: number } ]
-send2 = demjson.encode(dataToPost2)
+    send2["name"] = vm2["name"]
+    send2["number"] = i
 
-#Post
-if load1 < load2:
-    r3 = requests.post("http://localhost:8888/checkForPrimes", send1)
-    print("Is " + number + " a prime?")
-    print(r3.text)
-else:
-    r4 = requests.post("http://localhost:8888/checkForPrimes", send2)
-    print("Is " + number + " a prime?")
-    print(r4.text)
+    #Post
+    if load1 < load2:
+        r3 = requests.post("http://localhost:8888/checkForPrimes", send1)
+        print("Is " + number + " a prime?")
+        print(r3.text)
+    else:
+        r4 = requests.post("http://localhost:8888/checkForPrimes", send2)
+        print("Is " + number + " a prime?")
+        print(r4.text)
 
+    ++i
 
 # invoke main
 if __name__ == "__main__":
