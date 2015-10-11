@@ -21,18 +21,16 @@ app.use(bodyParser.urlencoded({ extended: false })); // need to add the ability 
 // [{ "name": name, "ip": ip}]
 var VMS = [];
 
-// TODO: change to correct VM IP's 
-
 VMS["VM1"] = 
 	{
 		"name": "VM1",
-		"ip": "http://localhost:8080/"
+		"ip": "http://10.10.1.89:8080/"
 	};
 
 VMS["VM2"] = 
 	{
 		"name": "VM1",
-		"ip": "http://localhost:8080/"
+		"ip": "http://10.10.1.90:8080/"
 	};
 
 // to change based on load
@@ -88,4 +86,4 @@ app.post('/checkForPrimes', function(req, res){
 	
 });
 
-app.listen(8888);
+app.listen(8080);
