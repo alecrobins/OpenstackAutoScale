@@ -72,11 +72,11 @@ if  i < 1000:
     #Post
     if load1 < load2:
         r4 = requests.post("http://localhost:8080/checkForPrimes", data = {"number":i,"vm":vm1Name})
-        print("Is " + i + " a prime?")
+        print("Is " + str(i) + " a prime?")
         print(r4.text)
     else:
         r5 = requests.post("http://localhost:8080/checkForPrimes", data = {"number":i,"vm":vm2Name})
-        print("Is " + i + " a prime?")
+        print("Is " + str(i) + " a prime?")
         print(r5.text)
 
     duration = default_timer() - start
