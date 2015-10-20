@@ -69,8 +69,8 @@ def main ():
         load1 = vmLoads1["load"]
         load2 = vmLoads2["load"]
 
-        print "Load1: " + load1
-        print "Load2: " + load2
+        print "Load1: " + str(load1)
+        print "Load2: " + str(load2)
 
         #Post
         if load1 < load2:
