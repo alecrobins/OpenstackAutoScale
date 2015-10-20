@@ -69,6 +69,9 @@ def main ():
         load1 = vmLoads1["load"]
         load2 = vmLoads2["load"]
 
+        print "Load1: " + load1
+        print "Load2: " + load2
+
         #Post
         if load1 < load2:
             r4 = requests.post("http://localhost:8080/n", data = {"number":i,"vm":vm1Name})
