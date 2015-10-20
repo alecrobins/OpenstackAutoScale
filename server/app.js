@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false })); // need to add the ability 
 
 // keep track of the current vm process
 // [{ "name": name, "ip": ip}]
-var VMS = [];
+var VMS = {};
 
 // TODO: change to correct VM IP's 
 

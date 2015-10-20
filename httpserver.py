@@ -3,7 +3,7 @@ import time
 import BaseHTTPServer
 
 HOST = ''
-PORT = 8080
+PORT = 8888
 
 # MyHTTPHandler inherits from BaseHTTPServer.BaseHTTPRequestHandler
 class MyHTTPHandler (BaseHTTPServer.BaseHTTPRequestHandler):
