@@ -6,6 +6,7 @@ import sys
 import httplib
 import requests
 import json
+from timeit import default_timer
 
 def main ():
     print "Instantiating a connection obj"
@@ -48,26 +49,40 @@ def main ():
 
 r = requests.get("http://localhost:8888/getVMS")
 vmInfo = json.loads(r.text)
-vm1 = vmInfo["VM1"]
-vm2 = vmInfo["VM2"]
+
+vm1Name = vmInfo["VM1"]["name"]
+vm2Name = vmInfo["VM2"]["name"]
+vm1IP = vmInfo["VM1"]["ip"]
+vm2IP = vmInfo["VM2"]["ip"]
 
 i = 0;
-while  i < 1000: 
+durationsOfCalls = []
+if  i < 1000:
+    start = default_timer()
 
     #Get load....
     r2 = requests.get("http://localhost:8888/getLoad")
-    vmLoads = json.loads(r2.text);
-    load1 = vmLoads["VM1"]["load"]
-    load2 = vmLoads["VM2"]["load"]
+    #vmLoads = json.loads(r2.text);
+    #print(vmLoads)
+#    load1 = vmLoads["VM1"]["load"]
+#    load2 = vmLoads["VM2"]["load"]
 
-    send1 = []
-    send2 = []
-
-    send1["name"] = vm1["name"]
-    send1["number"] = i
-
-    send2["name"] = vm2["name"]
-    send2["number"] = i
+    
+    testSend1 = {}
+    testSend1['name'] = "testvmsmaller"
+    testSend1['load'] = .5
+    
+    testSend2 = {}
+    testSend2['name'] = "testvmbigger"
+    testSend2['load'] = .7
+    
+    l1test = testSend1["load"]
+    l2test = testSend2["load"]
+    
+    if l1test < l2test:
+        print("It works")
+        print(l1test)
+        print(l2test)
 
     #Post
     if load1 < load2:
@@ -79,7 +94,11 @@ while  i < 1000:
         print("Is " + number + " a prime?")
         print(r4.text)
 
+    duration = default_timer() - start
+    durationsOfCalls.append(duration)
     ++i
+
+print durationsOfCalls
 
 # invoke main
 if __name__ == "__main__":
