@@ -19,7 +19,7 @@ app.get('/getLoad', function(req, res){
 			function(cb){
 				os.cpuUsage(function(v){
 					cb(null, v);
-				})
+				});
 			}
 		],
 		function(err, results){
