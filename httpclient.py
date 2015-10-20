@@ -81,7 +81,7 @@ def main ():
 
         duration = default_timer() - start
         durationsOfCalls.append(duration)
-        ++i
+        i += 1
 
     for p in durationsOfCalls:
         print(p)
