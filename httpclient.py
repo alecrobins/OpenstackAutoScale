@@ -83,7 +83,8 @@ if  i < 1000:
     durationsOfCalls.append(duration)
     ++i
 
-print durationsOfCalls
+for p in durationsOfCalls:
+    print(p)
 
 # invoke main
 if __name__ == "__main__":
