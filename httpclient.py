@@ -61,8 +61,8 @@ if  i < 1000:
     start = default_timer()
 
     #Get load....
-    r2 = requests.get("http://localhost:8080/getLoad", vm1Name)
-    r3 = requests.get("http://localhost:8080/getLoad", vm2Name)
+    r2 = requests.get("http://localhost:8080/getLoad/" + vm1Name)
+    r3 = requests.get("http://localhost:8080/getLoad/" + vm2Name)
     vmLoads1 = json.loads(r2.text);
     vmLoads2 = json.loads(r3.text);
 

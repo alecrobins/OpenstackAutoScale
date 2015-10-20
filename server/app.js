@@ -35,6 +35,7 @@ VMS["VM2"] =
 
 // return all the virtual machines
 app.get('/getVMS', function(req, res){
+	console.log("Get Loads");
 	res.json(VMS);
 });
 
@@ -66,7 +67,7 @@ app.post('/n', function(req, res){
 	console.log(req.body);
 	var n = req.body.number;
 	var currentVM = VMS[req.body.vm];
-
+	console.log("Checking primes for a server . . . ");
 	async.series([
 		function(cb){
 			// request that the current set VM run the check for primes
@@ -82,6 +83,7 @@ app.post('/n', function(req, res){
 		}],
 		function(err, results){
 			if(err) res.sendStatus(400);
+			console.log("return results");
 			res.json({"isPrime": results[0]});
 	});
 	
