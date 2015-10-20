@@ -68,14 +68,14 @@ if  i < 1000:
 
     load1 = vmLoads1["load"]
     load2 = vmLoads2["load"]
-    
+
     #Post
     if load1 < load2:
-        r4 = requests.post("http://localhost:8080/checkForPrimes", i, vm1Name)
+        r4 = requests.post("http://localhost:8080/checkForPrimes", data = {"number":i,"vm":vm1Name})
         print("Is " + i + " a prime?")
         print(r4.text)
     else:
-        r5 = requests.post("http://localhost:80880/checkForPrimes", i, vm2Name)
+        r5 = requests.post("http://localhost:8080/checkForPrimes", data = {"number":i,"vm":vm2Name})
         print("Is " + i + " a prime?")
         print(r5.text)
 
