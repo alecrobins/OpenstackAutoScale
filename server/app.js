@@ -64,6 +64,7 @@ app.get('/getLoad/:vmID', function(req, res){
 
 // ask a vm to compute the check for primes
 app.post('/n', function(req, res){
+	console.log(req.body);
 	var n = req.body.number;
 	var currentVM = VMS[req.body.vm];
 	console.log("Checking primes for a server . . . ");

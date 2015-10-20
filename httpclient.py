@@ -61,22 +61,30 @@ if  i < 1000:
     start = default_timer()
 
     #Get load....
-    r2 = requests.get("http://localhost:8080/getLoad", vm1Name)
-    r3 = requests.get("http://localhost:8080/getLoad", vm2Name)
+    r2 = requests.get("http://localhost:8080/getLoad/" + vm1Name)
+    r3 = requests.get("http://localhost:8080/getLoad/" + vm2Name)
     vmLoads1 = json.loads(r2.text);
     vmLoads2 = json.loads(r3.text);
 
     load1 = vmLoads1["load"]
     load2 = vmLoads2["load"]
-    
+
     #Post
     if load1 < load2:
-        r4 = requests.post("http://localhost:8080/checkForPrimes", i, vm1Name)
-        print("Is " + i + " a prime?")
+	data = {
+            'number': i,
+            'vm': vm1Name
+        }
+        r4 = requests.post("http://localhost:8080/n", json.dumps(data))
+        print("Is " + str(i) + " a prime?")
         print(r4.text)
     else:
-        r5 = requests.post("http://localhost:80880/checkForPrimes", i, vm2Name)
-        print("Is " + i + " a prime?")
+	data = {
+            'number': i,
+            'vm': vm2Name
+        }
+        r5 = requests.post("http://localhost:8080/n", json.dumps(data))
+        print("Is " + str(i) + " a prime?")
         print(r5.text)
 
     duration = default_timer() - start
