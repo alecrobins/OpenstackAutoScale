@@ -47,44 +47,44 @@ def main ():
     #     print "Exception thrown: ", sys.exc_info()[0]
     #     raise
 
-r = requests.get("http://localhost:8080/getVMS")
-vmInfo = json.loads(r.text)
+    r = requests.get("http://localhost:8080/getVMS")
+    vmInfo = json.loads(r.text)
 
-vm1Name = vmInfo["VM1"]["name"]
-vm2Name = vmInfo["VM2"]["name"]
-vm1IP = vmInfo["VM1"]["ip"]
-vm2IP = vmInfo["VM2"]["ip"]
+    vm1Name = vmInfo["VM1"]["name"]
+    vm2Name = vmInfo["VM2"]["name"]
+    vm1IP = vmInfo["VM1"]["ip"]
+    vm2IP = vmInfo["VM2"]["ip"]
 
-i = 0;
-durationsOfCalls = []
-while  i < 1000:
-    start = default_timer()
+    i = 0;
+    durationsOfCalls = []
+    while  i < 1000:
+        start = default_timer()
 
-    #Get load....
-    r2 = requests.get("http://localhost:8080/getLoad/" + vm1Name)
-    r3 = requests.get("http://localhost:8080/getLoad/" + vm2Name)
-    vmLoads1 = json.loads(r2.text);
-    vmLoads2 = json.loads(r3.text);
+        #Get load....
+        r2 = requests.get("http://localhost:8080/getLoad/" + vm1Name)
+        r3 = requests.get("http://localhost:8080/getLoad/" + vm2Name)
+        vmLoads1 = json.loads(r2.text);
+        vmLoads2 = json.loads(r3.text);
 
-    load1 = vmLoads1["load"]
-    load2 = vmLoads2["load"]
+        load1 = vmLoads1["load"]
+        load2 = vmLoads2["load"]
 
-    #Post
-    if load1 < load2:
-        r4 = requests.post("http://localhost:8080/n", data = {"number":i,"vm":vm1Name})
-        print("Is " + str(i) + " a prime?")
-        print(r4.text)
-    else:
-        r5 = requests.post("http://localhost:8080/n", data = {"number":i,"vm":vm2Name})
-        print("Is " + str(i) + " a prime?")
-        print(r5.text)
+        #Post
+        if load1 < load2:
+            r4 = requests.post("http://localhost:8080/n", data = {"number":i,"vm":vm1Name})
+            print("Is " + str(i) + " a prime?")
+            print(r4.text)
+        else:
+            r5 = requests.post("http://localhost:8080/n", data = {"number":i,"vm":vm2Name})
+            print("Is " + str(i) + " a prime?")
+            print(r5.text)
 
-    duration = default_timer() - start
-    durationsOfCalls.append(duration)
-    ++i
+        duration = default_timer() - start
+        durationsOfCalls.append(duration)
+        ++i
 
-for p in durationsOfCalls:
-    print(p)
+    for p in durationsOfCalls:
+        print(p)
 
 # invoke main
 if __name__ == "__main__":
