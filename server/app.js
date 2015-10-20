@@ -21,22 +21,19 @@ app.use(bodyParser.urlencoded({ extended: false })); // need to add the ability 
 // [{ "name": name, "ip": ip}]
 var VMS = {};
 
-// TODO: change to correct VM IP's 
+// TODO: change to correct VM IP's
 
 VMS["VM1"] = 
 	{
 		"name": "VM1",
-		"ip": "http://localhost:8080/"
+		"ip": "http://10.10.1.89:8080/"
 	};
 
 VMS["VM2"] = 
 	{
-		"name": "VM1",
-		"ip": "http://localhost:8080/"
+		"name": "VM2",
+		"ip": "http://10.10.1.90:8080/"
 	};
-
-// to change based on load
-var currentVM = VMS.VM1.ip;
 
 // return all the virtual machines
 app.get('/getVMS', function(req, res){
@@ -44,8 +41,9 @@ app.get('/getVMS', function(req, res){
 });
 
 // return all the virtual machines
-app.post('/getLoad', function(req, res){
-	var vmID = req.body.vmID;
+app.get('/getLoad/:vmID', function(req, res){
+	var vmID = req.params.vmID;
+
 	async.series([
 		function(cb){
 			// request that the current set VM run the check for primes
@@ -66,12 +64,14 @@ app.post('/getLoad', function(req, res){
 });
 
 // ask a vm to compute the check for primes
-app.post('/checkForPrimes', function(req, res){
+app.post('/n', function(req, res){
 	var n = req.body.number;
+	var currentVM = VMS[req.body.vm];
+
 	async.series([
 		function(cb){
 			// request that the current set VM run the check for primes
-			request( currentVM + "checkForPrimes/" + n, function (error, response, body) {
+			request( currentVM.ip + "checkForPrimes/" + n, function (error, response, body) {
 			  if (!error && response.statusCode == 200) {
 			    	var data = JSON.parse(body);
 			    	cb(null, data.isPrime);
