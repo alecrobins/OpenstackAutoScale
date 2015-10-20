@@ -61,38 +61,23 @@ if  i < 1000:
     start = default_timer()
 
     #Get load....
-    r2 = requests.get("http://localhost:8080/getLoad")
-    vmLoads = json.loads(r2.text);
-    print(vmLoads)
-    load1 = vmLoads["VM1"]["load"]
-    load2 = vmLoads["VM2"]["load"]
+    r2 = requests.get("http://localhost:8080/getLoad", vm1Name)
+    r3 = requests.get("http://localhost:8080/getLoad", vm2Name)
+    vmLoads1 = json.loads(r2.text);
+    vmLoads2 = json.loads(r3.text);
 
+    load1 = vmLoads1["load"]
+    load2 = vmLoads2["load"]
     
-    #testSend1 = {}
-    #testSend1['name'] = "testvmsmaller"
-    #testSend1['load'] = .5
-    
-    #testSend2 = {}
-    #testSend2['name'] = "testvmbigger"
-    #testSend2['load'] = .7
-    
-    #l1test = testSend1["load"]
-    #l2test = testSend2["load"]
-    
-    #if l1test < l2test:
-    #    print("It works")
-    #    print(l1test)
-    #    print(l2test)
-
     #Post
     if load1 < load2:
-        r3 = requests.post("http://localhost:8080/checkForPrimes", i, vm1Name)
-        print("Is " + i + " a prime?")
-        print(r3.text)
-    else:
-        r4 = requests.post("http://localhost:8080/checkForPrimes", i, vm2Name)
+        r4 = requests.post("http://localhost:8080/checkForPrimes", i, vm1Name)
         print("Is " + i + " a prime?")
         print(r4.text)
+    else:
+        r5 = requests.post("http://localhost:80880/checkForPrimes", i, vm2Name)
+        print("Is " + i + " a prime?")
+        print(r5.text)
 
     duration = default_timer() - start
     durationsOfCalls.append(duration)
