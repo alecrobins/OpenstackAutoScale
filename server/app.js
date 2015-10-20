@@ -21,8 +21,6 @@ app.use(bodyParser.urlencoded({ extended: false })); // need to add the ability 
 // [{ "name": name, "ip": ip}]
 var VMS = {};
 
-// TODO: change to correct VM IP's
-
 VMS["VM1"] = 
 	{
 		"name": "VM1",
@@ -88,4 +86,4 @@ app.post('/n', function(req, res){
 	
 });
 
-app.listen(8888);
+app.listen(8080);
