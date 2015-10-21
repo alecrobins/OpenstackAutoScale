@@ -57,7 +57,7 @@ def main ():
 
     i = 0;
     durationsOfCalls = []
-    while  i < 10:
+    while  i < 1000:
         start = default_timer()
 
         #Get load....
