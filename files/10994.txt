@@ -1,0 +1,10 @@
+10994: VM1: 8.72354722023sec, current load: 0 at: 01:14:46
+10994: VM2: 18.2641510963sec, current load: 0.01 at: 01:15:05
+10994: VM2: 19.282818079sec, current load: 0 at: 01:15:24
+10994: VM2: 19.5226399899sec, current load: 0 at: 01:15:44
+10994: VM2: 16.3669030666sec, current load: 0 at: 01:16:00
+10994: VM1: 31.1982991695sec, current load: 0 at: 01:16:31
+10994: VM2: 18.059705019sec, current load: 0 at: 01:16:49
+10994: VM2: 21.1837570667sec, current load: 0 at: 01:17:10
+10994: VM1: 32.9969580173sec, current load: 0 at: 01:17:43
+10994: VM2: 15.0988099575sec, current load: 0 at: 01:17:58

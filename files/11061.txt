@@ -1,0 +1,10 @@
+11061: VM2: 14.2253899574sec, current load: 0 at: 01:14:56
+11061: VM2: 16.2839810848sec, current load: 0 at: 01:15:12
+11061: VM2: 20.2902691364sec, current load: 0 at: 01:15:32
+11061: VM1: 30.8046789169sec, current load: 0 at: 01:16:03
+11061: VM2: 16.4899320602sec, current load: 0 at: 01:16:19
+11061: VM2: 16.3788671494sec, current load: 0 at: 01:16:36
+11061: VM2: 20.5459079742sec, current load: 0.019801980198 at: 01:16:56
+11061: VM2: 21.1760268211sec, current load: 0 at: 01:17:18
+11061: VM2: 20.5601029396sec, current load: 0 at: 01:17:38
+11061: VM2: 17.3119239807sec, current load: 0 at: 01:17:55

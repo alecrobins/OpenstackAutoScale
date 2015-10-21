@@ -1,0 +1,10 @@
+10990: VM1: 9.39841008186sec, current load: 0 at: 01:14:46
+10990: VM2: 17.3234930038sec, current load: 0.019801980198 at: 01:15:04
+10990: VM2: 19.2173678875sec, current load: 0.01 at: 01:15:23
+10990: VM1: 32.4221980572sec, current load: 0 at: 01:15:55
+10990: VM2: 17.8566770554sec, current load: 0 at: 01:16:13
+10990: VM2: 17.4555301666sec, current load: 0.0196078431373 at: 01:16:31
+10990: VM2: 18.4156601429sec, current load: 0 at: 01:16:49
+10990: VM2: 21.1909649372sec, current load: 0 at: 01:17:10
+10990: VM2: 20.5426139832sec, current load: 0 at: 01:17:31
+10990: VM2: 19.4302401543sec, current load: 0 at: 01:17:50

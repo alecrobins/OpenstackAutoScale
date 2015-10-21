@@ -1,0 +1,10 @@
+11043: VM1: 23.9738829136sec, current load: 0 at: 01:15:05
+11043: VM1: 35.5312280655sec, current load: 0 at: 01:15:40
+11043: VM2: 15.0919361115sec, current load: 0.01 at: 01:15:55
+11043: VM2: 17.8988809586sec, current load: 0 at: 01:16:13
+11043: VM2: 17.4671239853sec, current load: 0.00990099009901 at: 01:16:31
+11043: VM2: 18.4052541256sec, current load: 0 at: 01:16:49
+11043: VM2: 21.1900858879sec, current load: 0 at: 01:17:10
+11043: VM2: 20.5518929958sec, current load: 0 at: 01:17:31
+11043: VM1: 23.8041660786sec, current load: 0 at: 01:17:55
+11043: VM1: 6.79087901115sec, current load: 0 at: 01:18:01

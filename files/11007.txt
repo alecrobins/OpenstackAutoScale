@@ -1,0 +1,10 @@
+11007: VM1: 20.8787741661sec, current load: 0 at: 01:15:00
+11007: VM2: 15.4519460201sec, current load: 0 at: 01:15:15
+11007: VM2: 20.3343949318sec, current load: 0 at: 01:15:35
+11007: VM2: 15.3521020412sec, current load: 0 at: 01:15:51
+11007: VM2: 18.4700109959sec, current load: 0 at: 01:16:09
+11007: VM2: 17.4440619946sec, current load: 0.00990099009901 at: 01:16:27
+11007: VM2: 16.3821601868sec, current load: 0 at: 01:16:43
+11007: VM2: 21.2160291672sec, current load: 0.01 at: 01:17:04
+11007: VM2: 20.5414729118sec, current load: 0.01 at: 01:17:25
+11007: VM2: 20.4982030392sec, current load: 0 at: 01:17:45

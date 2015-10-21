@@ -1,0 +1,10 @@
+11028: VM1: 22.7845900059sec, current load: 0.01 at: 01:15:03
+11028: VM2: 17.3926429749sec, current load: 0 at: 01:15:20
+11028: VM2: 20.3667759895sec, current load: 0 at: 01:15:40
+11028: VM2: 15.3392109871sec, current load: 0 at: 01:15:56
+11028: VM1: 31.3039319515sec, current load: 0 at: 01:16:27
+11028: VM2: 16.9001657963sec, current load: 0 at: 01:16:44
+11028: VM2: 20.5606708527sec, current load: 0.01 at: 01:17:05
+11028: VM2: 21.1805429459sec, current load: 0 at: 01:17:26
+11028: VM2: 19.4824080467sec, current load: 0 at: 01:17:45
+11028: VM2: 14.1960909367sec, current load: 0.00990099009901 at: 01:17:59
