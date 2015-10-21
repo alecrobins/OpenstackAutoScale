@@ -20,8 +20,9 @@ def main ():
     vm2IP = vmInfo["VM2"]["ip"]
 
     # create file
-    filename = "/files/" + str(os.getpid()) + ".txt"¨
-    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    filename = "/files/" + str(os.getpid()) + ".txt"
+    if not os.path.exists(os.path.dirname(filename)):
+        os.makedirs(os.path.dirname(filename))
     f = open(filename, "w")
 
     vmNameAndTime = [];
