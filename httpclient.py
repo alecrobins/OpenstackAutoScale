@@ -19,7 +19,10 @@ def main ():
     vm1IP = vmInfo["VM1"]["ip"]
     vm2IP = vmInfo["VM2"]["ip"]
 
-    f = open(str(os.getpid()), 'w')
+    # create file
+    filename = "/files/" + str(os.getpid()) + ".txt"¨
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    f = open(filename, "w")
 
     vmNameAndTime = [];
     i = 0;
