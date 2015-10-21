@@ -20,7 +20,7 @@ def main ():
     vm2IP = vmInfo["VM2"]["ip"]
 
     # create file
-    filename = "/files/" + str(os.getpid()) + ".txt"¨
+    filename = "./files/" + str(os.getpid()) + ".txt"
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     f = open(filename, "w")
 
