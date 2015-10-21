@@ -7,6 +7,7 @@ import httplib
 import requests
 import json
 import os
+import time
 from timeit import default_timer
 
 def main ():
@@ -34,7 +35,7 @@ def main ():
         load1 = vmLoads1["load"]
         load2 = vmLoads2["load"]
         currentMachine = ""
-        currentLoad = 0
+        currentLoad = ""
 
         print "Load1: " + str(load1)
         print "Load2: " + str(load2)
@@ -42,28 +43,27 @@ def main ():
         #Post
         if load1 < load2:
             r4 = requests.post("http://localhost:8080/n", data = {"number":i,"vm":vm1Name})
-            #print("Is " + str(i) + " a prime?")
-            #print(r4.text)
-            currentLoad = r4.text
+            currentLoad = load1
             currentMachine = vm1Name;
         else:
             r5 = requests.post("http://localhost:8080/n", data = {"number":i,"vm":vm2Name})
-            #print("Is " + str(i) + " a prime?")
-            #print(r5.text)
-            currentLoad = r5.text
+            currentLoad = load2
             currentMachine = vm2Name
 
         duration = default_timer() - start
         vmNameAndTime.append((currentMachine,duration))
-        output = currentMachine + ": " + str(duration) + "sec, current load: " + currentLoad + "\n"
+        
+        output = str(os.getpgid()) + ": " + currentMachine + 
+            ": " + str(duration) + "sec, current load: " + currentLoad + " at: " +
+            time.strftime("%H:%M:%S") + "\n"
+
         f.write(output)
+
         i += 1
 
     # close the text file
     f.close()
 
-    #for vmAndDuration in vmNameAndTime:
-    #   print(vmAndDuration)
 # invoke main
 if __name__ == "__main__":
     sys.exit (main ())
