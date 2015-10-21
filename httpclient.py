@@ -9,7 +9,10 @@ import json
 from timeit import default_timer
 
 def main ():
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1b4c9ebdde70de2d1f882756e34e086f2cc44dcb
     r = requests.get("http://localhost:8080/getVMS")
     vmInfo = json.loads(r.text)
 
@@ -18,11 +21,13 @@ def main ():
     vm1IP = vmInfo["VM1"]["ip"]
     vm2IP = vmInfo["VM2"]["ip"]
 
-    i = 0;
-    durationsOfCalls = []
-    vmCalled = []
     vmNameAndTime = [];
+<<<<<<< HEAD
     while  i < 1000:
+=======
+    i = 0;
+    while  i < 10:
+>>>>>>> 1b4c9ebdde70de2d1f882756e34e086f2cc44dcb
         start = default_timer()
 
         #Get load....
@@ -51,13 +56,17 @@ def main ():
 
         duration = default_timer() - start
         vmNameAndTime.append((currentMachine,duration))
+<<<<<<< HEAD
         durationsOfCalls.append(duration)
         vmCalled.append(currentMachine)
         i += 10
+=======
+        print(currentMachine,duration)
+        i += 1
+>>>>>>> 1b4c9ebdde70de2d1f882756e34e086f2cc44dcb
 
-    for vmAndDuration in vmNameAndTime:
-        print(vmAndDuration)
-
+    #for vmAndDuration in vmNameAndTime:
+    #   print(vmAndDuration)
 # invoke main
 if __name__ == "__main__":
     sys.exit (main ())
