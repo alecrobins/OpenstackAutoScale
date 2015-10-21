@@ -34,6 +34,7 @@ def main ():
         load1 = vmLoads1["load"]
         load2 = vmLoads2["load"]
         currentMachine = ""
+        currentLoad = 0
 
         print "Load1: " + str(load1)
         print "Load2: " + str(load2)
@@ -43,18 +44,23 @@ def main ():
             r4 = requests.post("http://localhost:8080/n", data = {"number":i,"vm":vm1Name})
             #print("Is " + str(i) + " a prime?")
             #print(r4.text)
-            #currentMachine = vm1Name;
+            currentLoad = r4.text
+            currentMachine = vm1Name;
         else:
             r5 = requests.post("http://localhost:8080/n", data = {"number":i,"vm":vm2Name})
             #print("Is " + str(i) + " a prime?")
             #print(r5.text)
-            #currentMachine = vm2Name
+            currentLoad = r5.text
+            currentMachine = vm2Name
 
         duration = default_timer() - start
         vmNameAndTime.append((currentMachine,duration))
-        output = currentMachine + ": " + str(duration) + "\n"
+        output = currentMachine + ": " + str(duration) + "sec, current load: " + currentLoad + "\n"
         f.write(output)
         i += 1
+
+    # close the text file
+    f.close()
 
     #for vmAndDuration in vmNameAndTime:
     #   print(vmAndDuration)
