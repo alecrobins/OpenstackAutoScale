@@ -6,10 +6,10 @@ import sys
 import httplib
 import requests
 import json
+import os
 from timeit import default_timer
 
 def main ():
-
     r = requests.get("http://localhost:8080/getVMS")
     vmInfo = json.loads(r.text)
 
@@ -17,6 +17,8 @@ def main ():
     vm2Name = vmInfo["VM2"]["name"]
     vm1IP = vmInfo["VM1"]["ip"]
     vm2IP = vmInfo["VM2"]["ip"]
+
+    f = open(os.getpid(), 'w')
 
     vmNameAndTime = [];
     i = 0;
@@ -38,19 +40,20 @@ def main ():
 
         #Post
         if load1 < load2:
-            currentMachine = vm1Name    
+            r4 = requests.post("http://localhost:8080/n", data = {"number":i,"vm":vm1Name})
+            #print("Is " + str(i) + " a prime?")
+            #print(r4.text)
+            #currentMachine = vm1Name;
         else:
-            currentMachine = vm1Name
-
-        r4 = requests.post("http://localhost:8080/n", data = {"number":i,"vm":currentMachine})
-            print("Is " + str(i) + " a prime?")
-            print(r4.text)
-            currentMachine = vm1Name;
+            r5 = requests.post("http://localhost:8080/n", data = {"number":i,"vm":vm2Name})
+            #print("Is " + str(i) + " a prime?")
+            #print(r5.text)
+            #currentMachine = vm2Name
 
         duration = default_timer() - start
         vmNameAndTime.append((currentMachine,duration))
-
-        print(currentMachine,duration)
+        output = currentMachine + ": " + str(duration) + "\n"
+        f.write(output)
         i += 1
 
     #for vmAndDuration in vmNameAndTime:
