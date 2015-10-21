@@ -1,0 +1,10 @@
+10860: VM2: 3.0832722187sec, current load: 0.01 at: 01:10:18
+10860: VM2: 3.04043984413sec, current load: 0.01 at: 01:10:21
+10860: VM1: 2.19243097305sec, current load: 0 at: 01:10:24
+10860: VM2: 2.16875910759sec, current load: 0 at: 01:10:26
+10860: VM2: 2.18332386017sec, current load: 0 at: 01:10:28
+10860: VM1: 2.11793112755sec, current load: 0 at: 01:10:30
+10860: VM2: 2.11854505539sec, current load: 0 at: 01:10:32
+10860: VM2: 2.12915205956sec, current load: 0 at: 01:10:34
+10860: VM2: 2.09922909737sec, current load: 0.00990099009901 at: 01:10:36
+10860: VM2: 2.06402087212sec, current load: 0.01 at: 01:10:38

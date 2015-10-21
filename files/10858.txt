@@ -1,0 +1,10 @@
+10858: VM2: 3.06127691269sec, current load: 0 at: 01:10:18
+10858: VM1: 2.08876395226sec, current load: 0 at: 01:10:20
+10858: VM2: 2.13608789444sec, current load: 0 at: 01:10:22
+10858: VM1: 2.16987490654sec, current load: 0 at: 01:10:25
+10858: VM1: 2.18508982658sec, current load: 0.01 at: 01:10:27
+10858: VM2: 2.1092569828sec, current load: 0 at: 01:10:29
+10858: VM2: 2.0909371376sec, current load: 0 at: 01:10:31
+10858: VM1: 2.1355009079sec, current load: 0 at: 01:10:33
+10858: VM2: 2.10262799263sec, current load: 0 at: 01:10:35
+10858: VM2: 2.06012010574sec, current load: 0.01 at: 01:10:37

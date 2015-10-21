@@ -21,7 +21,8 @@ def main ():
 
     # create file
     filename = "./files/" + str(os.getpid()) + ".txt"
-    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    if not os.path.exists(os.path.dirname(filename)):
+        os.makedirs(os.path.dirname(filename))
     f = open(filename, "w")
 
     vmNameAndTime = [];
