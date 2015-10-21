@@ -9,44 +9,6 @@ import json
 from timeit import default_timer
 
 def main ():
-    # print "Instantiating a connection obj"
-    # try:
-    #     conn = httplib.HTTPConnection ("localhost", "8888")
-    # except:
-    #     print "Exception thrown: ", sys.exc_info()[0]
-    #     raise
-    
-    # print "sending a GET request to our http server"
-    # try:
-    #     conn.request ("GET", "/")
-    # except:
-    #     print "Exception thrown: ", sys.exc_info()[0]
-    #     raise
-    
-    # print "retrieving a response from http server"
-    # try:
-    #     resp = conn.getresponse ()
-    # except:
-    #     print "Exception thrown: ", sys.exc_info()[0]
-    #     raise
-    
-    # print "printing response headers"
-    # try:
-    #     for hdr in resp.getheaders ():
-    #         print hdr
-    # except:
-    #     print "Exception thrown: ", sys.exc_info()[0]
-    #     raise
-    
-    # print "printing data"
-    # try:
-    #     data = resp.read ()
-    #     print "Length of data = ", len(data)
-    #     print data
-    # except:
-    #     print "Exception thrown: ", sys.exc_info()[0]
-    #     raise
-
     r = requests.get("http://localhost:8080/getVMS")
     vmInfo = json.loads(r.text)
 
@@ -55,10 +17,8 @@ def main ():
     vm1IP = vmInfo["VM1"]["ip"]
     vm2IP = vmInfo["VM2"]["ip"]
 
-    i = 0;
-    durationsOfCalls = []
-    vmCalled = []
     vmNameAndTime = [];
+    i = 0;
     while  i < 10:
         start = default_timer()
 
@@ -89,13 +49,11 @@ def main ():
 
         duration = default_timer() - start
         vmNameAndTime.append((currentMachine,duration))
-        durationsOfCalls.append(duration)
-        vmCalled.append(currentMachine)
+        print(currentMachine,duration)
         i += 1
 
-    for vmAndDuration in vmNameAndTime:
-        print(vmAndDuration)
-
+    #for vmAndDuration in vmNameAndTime:
+    #   print(vmAndDuration)
 # invoke main
 if __name__ == "__main__":
     sys.exit (main ())
