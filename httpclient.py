@@ -54,7 +54,7 @@ def main ():
         vmNameAndTime.append((currentMachine,duration))
         
         output = str(os.getpid()) + ": " + currentMachine
-        output += ": " + str(duration) + "sec, current load: " + currentLoad + " at: "
+        output += ": " + str(duration) + "sec, current load: " + str(currentLoad) + " at: "
         output += time.strftime("%H:%M:%S") + "\n"
 
         f.write(output)
