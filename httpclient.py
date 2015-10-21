@@ -18,7 +18,7 @@ def main ():
     vm1IP = vmInfo["VM1"]["ip"]
     vm2IP = vmInfo["VM2"]["ip"]
 
-    f = open(os.getpid(), 'w')
+    f = open(str(os.getpid()), 'w')
 
     vmNameAndTime = [];
     i = 0;
