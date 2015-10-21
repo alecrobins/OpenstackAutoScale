@@ -53,7 +53,7 @@ def main ():
         duration = default_timer() - start
         vmNameAndTime.append((currentMachine,duration))
         
-        output = str(os.getpgid()) + ": " + currentMachine
+        output = str(os.getpid()) + ": " + currentMachine
         output += ": " + str(duration) + "sec, current load: " + currentLoad + " at: "
         output += time.strftime("%H:%M:%S") + "\n"
 
