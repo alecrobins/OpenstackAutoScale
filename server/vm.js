@@ -18,6 +18,8 @@ app.get('/getLoad', function(req, res){
 	async.series([
 			function(cb){
 				os.cpuUsage(function(v){
+
+					console.log("Load: " + v);
 					cb(null, v);
 				});
 			}
