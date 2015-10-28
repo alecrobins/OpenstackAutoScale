@@ -74,6 +74,7 @@ app.post('/n', function(req, res){
 			request( currentVM.ip + "checkForPrimes/" + n, function (error, response, body) {
 			  if (!error && response.statusCode == 200) {
 			    	var data = JSON.parse(body);
+			    	console.log(data);
 			    	cb(null, data.isPrime);
 			  }else{
 			  		console.log(error);
